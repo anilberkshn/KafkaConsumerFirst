@@ -32,8 +32,8 @@ namespace KafkaConsumerFirst
             while (true)
             {
                 var consumeResult = consumer.Consume(CancellationToken.None);
-                var product = JsonConvert.DeserializeObject<Product>(consumeResult.Value);
-                Console.WriteLine($"{product.Name}");
+                var product = JsonConvert.DeserializeObject<CreateDeveloperDto>(consumeResult.Value);
+                Console.WriteLine($"{product.Name + product.Surname + product.Department}");
 
             }
         }
